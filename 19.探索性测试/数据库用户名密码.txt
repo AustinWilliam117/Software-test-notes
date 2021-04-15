@@ -1,0 +1,10 @@
+主机名：101.133.169.100  
+用户名：bcbxbcbx  
+密码  ：bcbxbcbx  
+端口  ：3306
+
+
+http://101.133.169.100:8090
+管理员账号密码http://www.bcbxhome.com/bcbxxy/forum.php?mod=viewthread&tid=463&extra=page%3D1
+
+http://101.133.169.100:8090 网址

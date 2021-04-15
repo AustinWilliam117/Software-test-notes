@@ -1,0 +1,35 @@
+敏捷研发作业：
+作业1.整理敏捷研发思想的实施流程，图+文至wiki
+作业2.搭建悟空crm测试环境（每人部署一套环境，端口号 7000-8000，每个人选三个，不要重复）
+作业3.熟悉悟空crm系统，熟悉整体产品的需求（Product Backlog）
+作业4.注册jira用户，创建悟空crm系统项目，将划分好的迭代填充进去(包括版本、模块)
+作业5.组长拆分任务，各自编写测试用例（至少50个）用例excel编写和提交wiki，使用jira提bug单（最低要求20) 提至同一个迭代看板方便汇总查看（wiki提交看板页面的url+截图）
+
+JRIA
+http://182.92.197.48:8090/secure/Dashboard.jspa
+
+悟空crm
+http://101.133.169.100:8088/index.html
+
+账号：admin
+密码：123456
+
+
+禅道
+http://101.133.169.100/zentao_new/zentaopms/www/my/   
+ 
+admin   admin123qwe
+
+点餐系统：https://www.bcbxhome.com/diancan/leimu/list
+
+用户名  编测编学青云密码 bcbx_tester
+
+Testlink
+http://101.133.169.100/testlink/login.php
+
+
+
+
+
+
+

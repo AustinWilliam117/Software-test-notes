@@ -1,0 +1,83 @@
+点餐
+
+1. 调试模式：java -jar diancan-0.0.1-SNAPSHOT.jar
+
+2. 路径175.24.117.226:8085/diancan/admin/list
+
+3. 后台启动：nohup java -jar diancan-0.0.1-SNAPSHOT.jar &
+
+4. ps -ef |grep diancan 后台通过进程查看
+
+5. 查看日志：tail -f nohup.out
+
+6. systemctl start mysqld 启动mysql服务（如果没有启动的话）
+
+7. 注意id 999 到 1000 变为 1,000报错
+
+8. 开发改掉之前代码后发来新的jar包
+
+- 停掉原来的程序
+
+netstat -ntpl 查看启动的服务
+
+kill 进程号
+
+systemctl status mysqld 查看mysql状态
+
+
+物业管理
+
+1. nohup java -jar wuyehoutai2-0.0.1-SNAPSHOT.jar &
+
+2. tail -f nohup.out
+
+3. 拷贝cp /user/manba/xampp-linux-x64-7.2.22-0-installer.run ./
+
+4. ./xampp-linux-x64-7.2.22-0-installer.run 安装xampp
+
+5. 默认安装路径 /opt/lampp
+
+6. /opt/lampp/htdocs lampp初始路径
+
+将web175配置好的.tar 放在目录中 tar -xvf解压
+
+7. 查看帮助 /opt/lampp/lampp --hlep 可查看
+
+8. vim index.php 更改路径 /manba0228/web/login.html
+
+9. http://175.24.117.226:80
+
+
+CRM 搭建
+
+1. apache-tomcat-8.5.29.tar ROOT.war 两个包
+
+2. 更改端口 apache-tomcat-8.5.39目录下
+
+vim conf/server.xml
+
+:/SHUTDOWN 查找
+
+更改 <Server port="7001" shutdown="SHUTDOWN"> 7000-8000端口都可
+
+更改 <Connector port="8080" protocol="HTTP/1.1  .............."> 8080端口改一下，7000-8000端口都可
+
+更改 <Connector port="8009" protocol="AJP/1.3" redirectPort="8443"> port 7000-8000端口
+
+更改权限 chmod -R 744 bin
+
+./bin/startup.sh
+
+tail -f logs/catalina.out
+
+3. cd webapps/
+
+cp ROOT.war apache-tomcat-8.5.39/webapps
+
+cd apache-tomcat-8.5.39/
+
+[systemctl start redis.service 启动redis数据库]
+
+tail -f -n 40 logs/catalina.out
+
+175.24.117.26:7002/index.html#/

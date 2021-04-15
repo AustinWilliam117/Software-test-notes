@@ -1,0 +1,58 @@
+use mb21030502
+
+练习1
+select * from order_info_table where price >= 9;
+
+select * from order_info_table where product_id between 1002 and 1003;
+
+select * from order_info_table where user_id in (1,3,5);
+
+select * from order_info_table where order_status = 'pay';
+
+select * from user_info_table where user_name like 'li%';
+
+select * from user_info_table where user_name like '_h%';
+
+select * from user_info_table where user_name not like '_h%';
+
+select * from user_info_table where user_name like '%i';
+
+select * from order_info_table where price > 8 and order_status = 'pay';
+
+select * from user_info_table where user_nick is null;
+
+select * from user_info_table where user_nick is not null;
+
+练习2
+select max(price) min(price) from order_info_table;
+
+select min(price) from order_info_table where user_id = 2;
+
+select min(price),max(price) from order_info_table where user_id = 2;
+
+select max(price),min(price) as min_price from order_info_table where user_id = 2;
+
+select avg(price), min(price), max(price) from order_info_table where user_id = 2;
+
+select sum(price) from order_info_table where user_id = 1;
+
+select sum(price) from order_info_table where order_status = 'pay';
+
+练习3
+select user_id,sum(price) from order_info_table where order_status = 'pay' group by user_id;
+
+select user_id,sum(price) from order_info_table where order_status = 'pay' group by user_id having sum(price) > 10 [order by sum(price) desc];
+
+练习4
+select b.user_nick from user_info_table b INNER JOIN order_info_table a ON b.user_id = a.user_id where a.price > 10;
+select user_nick from user_info_table where user_id in (select user_id from order_info_table where price > 10);
+
+select a.order_id, a.price from order_info_table a where a.user_id in (select user_id  from user_info_table where user_name like "l%");
+
+
+
+
+
+
+
+

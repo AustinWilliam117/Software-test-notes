@@ -1,0 +1,11 @@
+地址：
+http://101.133.169.100:8088/index.html
+管理员用户名：admin
+密码：123456
+
+进去后右上角有企业管理，给自己创建一个用户（admin会被挤下去）
+
+指导手册：
+https://www.5kcrm.com/help_detail
+视频介绍：
+https://www.5kcrm.com/video

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 500px;
+            height: 800px;
+            margin: 20px auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <br><br><br><br><br>
+    <div class="box">
+        <input type="button" id="alert" value="alert" onclick="alert('一个致命的错误');">
+        <input type="button" id="confirm" value="confirm" onclick="confirm('你确定要这样吗')">
+        <input type="button" id="prompt" value="prompt" onclick="var name = prompt('请输入:','!!!!'); document.write(name)">
+    </div>
+</body>
+</html>
