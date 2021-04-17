@@ -107,7 +107,7 @@
 
 我们常用的包括：聚合报告、查看结果树、用表格查看结果，都支持将结果数据写入文件。其他的添加上去看看就行。聚合报告前面我们介绍过，后面是查看结果树和用表格查看结果的截图。
 
-![](./6.webp)
+![](./img/6.webp)
 
 ### 用户参数
 
@@ -221,6 +221,76 @@
 | .    | 匹配除换行符 \n 之外的任何单字符。要匹配 . ，请使用 . 。     |
 
 构造正则表达式的方法和创建数学表达式的方法一样。也就是用多种元字符与运算符可以将小的表达式结合在一起来创建更大的表达式。正则表达式的组件可以是单个的字符、字符集合、字符范围、字符间的选择或者所有这些组件的任意组合。
+
+
+
+### 服务器性能监控
+
+#### 安装JMeter插件管理器 `JMeter Plugins Manager`
+
+下载地址：https://jmeter-plugins.org/wiki/PluginsManager/
+
+将其放在 `lib/ext`目录下
+
+重启jmeter生效，在选项中，就可以找到plugins manager（插件管理器）
+
+#### 常用的插件
+
+`3 Basic Graphs`三个基本图表，可以监控：
+Average Response Time–平均响应时间
+Active Threads–活动的用户数）
+Successful/Failed Transactions–成功/失败的事务数
+
+`5 Additional Graphs`五个附加图表，可监控：
+Response Codes–响应码
+Bytes Throughput–吞吐量
+Connect Times–连接时间
+Latency–latencies over time:主要展示的是负载测试期间的响应延迟时间，延迟时间指的是请求结束到服务器开始响应的这段时间
+Hits/s–每秒点击数/连接数
+
+`Custom Thread Groups`自定义线程组，jmeter中，一个线程代表一个用户，用于设置用户加载的方式，怎么去增加用户。
+Adds new Thread Groups–增加新的线程组
+Stepping Thread Group–步进线程组
+Ultimate Thread Group–终极线程组
+Concurrency Thread Group–并发线程组，可以设置梯形的加压方式
+Arrivals Thread Group–抵达线程组
+Free-Form Arrivals Thread Group–自由抵达线程组
+
+`PerfMon (Servers Performance Monitoring)`服务器性能监控，允许收集目标服务器资源指标，如cpu，内存，网络，磁盘等。
+
+需要在目标计算机上启动ServerAgent服务。下载地址：https://github.com/undera/perfmon-agent/blob/master/README.md把这几个插件都勾上，然后安装，安装后重启即可使用这些插件
+
+**启动服务方法：**
+运行 CMDRunner.jar 包，启动 jar 包时指定端口为 8085
+
+命令：java -jar CMDRunner.jar --tool PerfMonAgent --udp-port 7777 --tcp-port 8085
+
+#### 如何判断是运维问题还是开发问题
+
+添加物理资源监控插件，在运行请求时，会动态监测CPU、内存、网络IO等资源。刚开始性能比较低时，CPU压力比较小，当增加压力时，CPU会升高，如果性能不达标，CPU飙升至85%以上就是运维的问题，需要抬升资源。
+
+![](/home/william/Desktop/压力测试/性能测试/img/服务器性能监控.png)
+
+
+
+#### 压力测试需要和产品经理进行沟通，询问产品经理到底测试什么场景
+
+**第一种：**先进行测试，出结果后再定测试方向和目标。
+
+- 需要去询问运维，服务器现有配置（硬件信息，如CPU、内存、硬盘、带宽等），再梳理测试场景
+  - 比如我测试的机器 CPU是4核3.8GHz，10TB 7200转 西部数据机械黑盘，8GB双通道内存 3200GHz
+  - 测试的场景是批量登录接口
+  - 我的性能目标是基于这样的配置，能支撑学校的学生在200人左右登录。或者在不改代码的情况下，该配置最大能支持多少人的并发量或吞吐。
+- 如果把物理配置再加大一倍，能测试出什么水平（代码没问题，物理资源不够）
+  - 需要核算成本，使用人数（规模）
+  - 如果2核4G内存可以支持学校200人同时登录，那么400人时需要资源翻倍
+  - 测试需要测不同场景，分别能达到什么样的水平
+
+**第二种：**老前辈已经测试过了，直接告诉你，这次是否能达到目标
+
+
+
+非并发场景看吞吐量，并发场景看响应时间
 
 
 
