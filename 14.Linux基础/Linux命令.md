@@ -67,7 +67,7 @@ ls （list directory contents）列出目录的内容及其内容属性信息
 
 4. `ls -R`递归查看目录，感觉没tree好用
 
-   ![](./ls/ls-R.png)
+   ![](./ls/ls-r.png)
 
 5. `ls -t`根据最后修改时间排序
 

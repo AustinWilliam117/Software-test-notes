@@ -905,6 +905,3 @@ select user_nick from user_info_table where user_id in (select user_id from orde
 -- 2.查询用户名以l开头的用户买过的所有订单id和对应价格（小提示：订单id和对应价格在订单表中，用户名在用户表中）
 select a.order_id, a.price from order_info_table a where a.user_id in (select user_id  from user_info_table where user_name like "l%");
 ```
-
-
-
